@@ -3,6 +3,7 @@ site_name: Curso de C
 site_description: 'Notas sobre la programación en C'
 site_author: Miguel Cuartas Hernández
 site_dir: 'c'
+repo_url: https://github.com/mcuartas/curso-c/
 
 # Copyright
 copyright: Copyright &copy; 2017 Miguel Cuartas
@@ -13,6 +14,7 @@ pages:
   - Crear documentacion:
     - Uso de mkdocs: mkdocs.md
     - Escribiendo Markdown: markdown.md
+    - Repositorios Git: git.md
   - Acerca de: about.md
 
 # Documentation and theme
