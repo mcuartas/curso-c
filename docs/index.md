@@ -19,7 +19,7 @@ Este programa muestra el siguiente mensaje por consola.
 	Process returned 13 (0xD)   execution time : 0.016 s
 	Press any key to continue.
 
-Con la directiva `:::c #include <stdio.h>` incluimos la librería estándar de funciones de entrada y salida (standard input - output) en el programa. Esto lo haremos al comienzo de cada programa para poder usar las funciones de entrada (leer o pedir datos) y de salida (mostrar o escribir datos).
+Con la directiva `:::c #include <stdio.h>` incluimos la [librería estándar de funciones de entrada y salida](https://es.wikipedia.org/wiki/Stdio.h) en el programa. Esto lo haremos al comienzo de cada programa para poder usar las funciones de entrada (leer o pedir datos) y de salida (mostrar o escribir datos).
 
 ==Los programas tendrán siempre una función llamada `:::c main`, seguida de un bloque entre llaves==. Esta función es la primera que se ejecuta, es decir, es el punto de entrada de nuestro programa. En el caso más simple, no devuelve ningún valor (`:::c void`) y no recibe ningún parámetro (por eso los paréntesis después de `:::c main` van vacios).
 
@@ -125,6 +125,8 @@ Los comentarios comienzan con  **/\*** y terminan con **\*/** cuando ocupan más
 
 Para escribir datos en la consola utilizaremos la función **printf**.
 
+>Ejemplo:
+
 	#!c
 	int a = 2;
 	float b = 4.5, suma;
@@ -134,7 +136,7 @@ Para escribir datos en la consola utilizaremos la función **printf**.
 	printf("La suma de %i y %f es %f \n", a, b, suma);
 	printf("La letra %c es la ultima", c);
 
-Resultado:
+>Resultado:
 
 	Mensaje sin datos
 	La suma de 2 y 4.500000 es 6.500000
@@ -152,15 +154,19 @@ En la ==línea 6== se incluyen, dentro del texto a escribir, unos comodines form
 |fraccionario|%f     |
 |carácter    |%c     |
 
+> Ejemplo:
+
 	#!c
 	float a = 10.555;
 	printf("El valor %.2f sale con 2 decimales.", a);
 
-Resultado:
+> Resultado:
 
 	El valor 10.56 sale con 2 decimales.
 
 Dentro de un comodín (código de formato), es posible ==establecer el número de decimales== con el que se mostrará el número. Para indicar 2 decimales utilizaremos el comodín **%.2f**. Colocamos un punto y el número de decimales deseado entre el carácter tanto por ciento y la letra f.
+
+> Ejemplo:
 
 	#!c
 	float a = 1.111, b = 2.222, c = 3.333;
@@ -170,7 +176,7 @@ Dentro de un comodín (código de formato), es posible ==establecer el número d
 	printf("%8.2f\t%-8.2f\n", c, d);
 	printf("%8.3f\t%-8.3f\n", e, f);
 
-Resultado:
+> Resultado:
 
 	Columna1        Columna2
 	     1.1        2.2
@@ -179,17 +185,67 @@ Resultado:
 
 También es posible ==indicar cuantas posiciones va a ocupar la impresión de un dato==. Esto nos permitirá disponer los datos en forma de columna. En el ejemplo anterior se especifica que los datos ocupen 8 posiciones cada uno. Por ejemplo, el comodín **%8.1f** indica que hay que mostrar el dato ocupando 8 posiciones y con 1 decimal. El número de posiciones puede ser positivo o negativo. Si es positivo el dato se alinea a la derecha en el espacio asignado. Si es negativo se alinea a la izquierda.
 
+> Ejemplo:
+
 	#!c
 	float dato = 10.555;
 	int decimales = 1;
 	printf("El dato es %.*f", decimales, dato);
 
-Resultado:
+> Resultado:
 
 	El dato es 10.6
 
 Es posible ==especificar el número de decimales con una variable==. Esto nos permite leer ese valor de un fichero de configuración o bien preguntárselo al usuario. Para utilizar esta funcionalidad utilizaremos el comodín **%.\*f**. Al utilizar este comodín, la primera variable que viene a continuación debe de ser un dato entero que indique el número de posiciones decimales a representar (en el ejemplo anterior la variable **decimales**).
 
+Es posible ampliar esta información en [wikipedia](https://es.wikipedia.org/wiki/Printf).
 
+## Leer datos de la consola
 
+Para leer datos de la consola, escritos por el usuario de nuestro programa, utilizaremos **scanf**.
 
+> Ejemplo:
+
+	#!c
+	int velocidad;
+	printf("Dame velocidad: ");
+	scanf("%i", &velocidad);
+	printf("La velocidad introducida es %i", velocidad);
+
+> Resultado:
+
+	Dame velocidad: 280
+	La velocidad introducida es 280
+
+En este ejemplo, el programa le pide al usuario una velocidad. El usuario teclea **280** y pulsa **INTRO**. A continuacion, el programa guarda el valor 280 en la variable **velocidad**. Por último, el programa imprime un mensaje en el que incorpora el valor de la variable **velocidad**.
+
+Cuando la el programa encuentra la función **scanf** detiene su ejecución y espera a que el usuario teclee en la consola la información que considere y pulse la tecla INTRO. En ese momento se evalua esa información para guardarla en la variable que indicamos en la llamada a **scanf**.
+
+Los parámetros que enviamos a **scanf** son semejantes a los que enviamos a **printf** (ver apartado anterior). En primer lugar una cadena de formato donde indicaremos el comodín correspondiente al tipo de dato que queremos obtener. **%i** para números enteros, **%f** para números con decimales y **%c** para un carácter. En segundo lugar, la variable donde queremos que se almacene el dato que el usuario va a introducir ==precedida por el carácter &==.
+
+!!! danger "Poner & delante de las variables que pasamos a scanf"
+	Cuando llamamos a **scanf** es necesario pasar un puntero a la variable donde queremos que se almacene el dato. (Un puntero es la dirección de memoria donde se ubica la variable). Esto permite a **scanf** modificar el valor de dicha variable. A esto se le llama pasar a una función una variable por referencia. Para ello es necesario poner delante del nombre de la variable un **&**. Uno de los fallos más frecuentes, al principio, es omitir ese carácter **&**. Así que es importante tenerlo presente.
+
+Es posible leer varios datos de una sola vez, siempre que indiquemos en la cadena de formato los comodines correspondientes a esos datos, y le pasemos a **scanf** las variables correspondientes para guardarlos.
+
+> Ejemplo:
+
+	#!c
+	int edad;
+    float altura;
+    printf("Teclee los datos separados por un espacio.\n");
+	printf("Edad y altura en metros: ");
+	scanf("%i %f", &edad, &altura);
+	printf("Edad: %i, Altura: %.2f", edad, altura);
+
+> Resultado:
+
+	Teclee los datos separados por un espacio.
+	Edad y altura en metros: 28 1.78
+	Edad: 28, Altura: 1.78
+
+En este ejemplo se le piden al usuario dos datos. El usuario introduce los dos datos separados por un espacio y pulsa **INTRO**. La función **scanf** es capaz de leer los dos datos simultaneamente y guardarlos en las variables **edad** y **altura**.
+
+Cuando vamos a leer varios datos, en la cadena de formato de **scanf** es necesario introducir los comodines correspondientes con el formato adecuado para que coincidan con la entrada que el usuario realize. Luego, separadas por comas, incluiremos tantas variables como datos a leer. Es importante incluir el **&** delante de las variables para pasarlas por referencia.
+
+Puede ser complicado que el usuario respete el formato esperado a la hora de introducir múltiples datos simultaneamente. En la mayor parte de los casos es recomendable pedir cada dato de forma individual.
