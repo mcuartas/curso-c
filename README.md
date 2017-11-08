@@ -54,11 +54,11 @@ Para utilizar la extensión PyMdown que entre otros paquetes incluye arithmatex 
 
 ### Pasos para comenzar la edición
 
-1. 	Abrir una consola DOS
-2. 	Teclear:  
+1. 	Abrir una consola DOS.
+2. 	Teclear (incluyendo la ruta a la carpeta de trabajo):  
 
 		cd Documents/mkdocs/curso-c
 		mkdocs serve
 
 3.  Abrir el navegador en http://127.0.0.1:8000/
-4.  Comenzar la edición
+4.  Comenzar la edición de los documentos.
