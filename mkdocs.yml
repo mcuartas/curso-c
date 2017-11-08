@@ -1,0 +1,58 @@
+# Project information
+site_name: Curso de C
+site_description: 'Notas sobre la programación en C'
+site_author: Miguel Cuartas Hernández
+site_dir: 'c'
+
+# Copyright
+copyright: Copyright &copy; 2017 Miguel Cuartas
+
+# Structure
+pages:
+  - Inicio: index.md
+  - Crear documentacion:
+    - Uso de mkdocs: mkdocs.md
+    - Escribiendo Markdown: markdown.md
+  - Acerca de: about.md
+
+# Documentation and theme
+theme: material
+
+# Options
+extra:
+  language: 'es'
+  palette:
+    primary: 'indigo'
+    accent: 'indigo'
+  font:
+    text: 'Roboto'
+    code: 'Roboto Mono'
+  social:
+    - type: 'twitter'
+      link: 'https://twitter.com/MiguelCuartas'
+    - type: 'linkedin'
+      link: 'https://linkedin.com/in/miguel-cuartas-hernández-5468386b'
+
+# Google Analytics
+google_analytics:
+  - 'UA-108885860-1'
+  - 'auto'
+
+# Extensions
+markdown_extensions:
+  - admonition
+  - codehilite
+  - footnotes
+  - toc:
+      permalink: true
+  - pymdownx.arithmatex
+  - pymdownx.details
+  - pymdownx.inlinehilite
+  - pymdownx.mark
+
+# JavaScript
+
+extra_javascript:
+  - 'javascripts/extra.js'
+  - 'javascripts/MathJax.js'
+
