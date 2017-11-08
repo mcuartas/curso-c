@@ -99,32 +99,97 @@ Los operadores básicos son la asignación, la suma, la resta, la multiplicació
 
 El operador de asignación toma el valor que tiene a la derecha y se lo asigna a la variable que hay a la izquierda. La división entre dos tipos de datos enteros da como resultado un tipo de dato entero (sin decimales), por eso el resultado en el ejemplo es 2. Si uno de los dos datos que intervienen hubiera sido *float* el resultado hubierá sido un valor con decimales (2.5). El operador módulo devuelve el resto de realizar la división entera. En el ejemplo, al dividir 5 entre 2 el resto que queda es 1.
 
-## Mi primer programa
+## Comentarios
+
+Podemos incluir comentarios explicativos en nuestro código para que nos sea más fácil entenderlo cuando pase el tiempo, o bien para que otras personas puedan comprender como funciona. No es conveniente comentar aspectos triviales del código, un buen código prácticamente se comenta a sí mismo. Pero ciertos algorítmos complicados o ciertas funciones reutilizables, por poner algunos ejemplos, requieren de comentarios aclarativos de su intencionalidad o de su funcionamiento.
+
+Los comentarios comienzan con  **/\*** y terminan con **\*/** cuando ocupan más de una línea de código. Un comentario de una sola línea se inicia con **//** y termína al finalizar la línea en la que aparece. Los comentarios son ignorados por el compilador y no influyen en el funcionamiento del programa.
 
 	#!c
 	#include <stdio.h>
-	#define PI 3.14159
 
-	void suma(int a, int b, int *c)
-	{
-		*c = a + b;
-	}
+	/* 
+	 *  Ejemplo de comentario
+	 *  en varias líneas
+	 */
 
-	void main()
-	{
-		int a, b, c;
-		printf("Dame a: ");
-		scanf("%i", &a);
-		printf("Dame b: ");
-		scanf("%i", &b);
-		suma(a, b, &c);
-		printf("La suma es %i", c);
-	}
+	 void main() // Ejemplo de comentario en una línea
+	 {
+	 	printf("Hola mundo!"); // Otro comentario
+	 }
 
-## Resultados en consola
+!!! note "Nota"
+	En el ejemplo anterior los asteríscos en las líneas 4 y 5 son únicamente estéticos y totalmente prescindibles. Es unicamente un estilo habitual de decorar comentarios que ocupan varias líneas.
 
-	Dame a: 6
-	Dame b: 6
-	La suma es 12
+## Escribir datos en la consola
+
+Para escribir datos en la consola utilizaremos la función **printf**.
+
+	#!c
+	int a = 2;
+	float b = 4.5, suma;
+	char c = 'X';
+	suma = a + b;
+	printf("Mensaje sin datos\n");
+	printf("La suma de %i y %f es %f \n", a, b, suma);
+	printf("La letra %c es la ultima", c);
+
+Resultado:
+
+	Mensaje sin datos
+	La suma de 2 y 4.500000 es 6.500000
+	La letra X es la ultima
+
+
+
+Con **printf** podemos mostrar un mensaje en la consola indicando el texto entre comillas tal y como vemos en la ==línea 5== del ejemplo anterior. El **\n** final es una secuencia de escape que indica un salto de línea. Las secuencias de escape sirven para representar caractéres especiales como el salto de línea (**\n**) o la tabulación (**\t**). Cuando queremos que se imprima una barra inclinada, para no confundirla con una secuencia de escape, utilizaremos el carácter (**\\\\**).
+
+En la ==línea 6== se incluyen, dentro del texto a escribir, unos comodines formados por el carácter **%** seguido de una letra. Estos comodines se sustituiran por el valor de las variables que colocamos al final separadas por comas, siguiendo su orden. Cada comodín se corresponde con un tipo de dato: **%i** para enteros, **%f** para números con decimales y **%c** para tipo carácter. De esta forma, en el primer comodín se sustituye el valor de la variable **a**, en el segundo el valor de la variable **b** y en el tercero el valor de la variable **suma**. Para poder imprimir el carácter **%** utilizaremos **%%**.
+
+|Tipo de dato|Comodín|
+|------------|:-----:|
+|entero      |%i     |
+|fraccionario|%f     |
+|carácter    |%c     |
+
+	#!c
+	float a = 10.555;
+	printf("El valor %.2f sale con 2 decimales.", a);
+
+Resultado:
+
+	El valor 10.56 sale con 2 decimales.
+
+Dentro de un comodín (código de formato), es posible ==establecer el número de decimales== con el que se mostrará el número. Para indicar 2 decimales utilizaremos el comodín **%.2f**. Colocamos un punto y el número de decimales deseado entre el carácter tanto por ciento y la letra f.
+
+	#!c
+	float a = 1.111, b = 2.222, c = 3.333;
+	float d = 4.444, e = 5.555, f = 6.666;
+	printf("Columna1\tColumna2\n");
+	printf("%8.1f\t%-8.1f\n", a, b);
+	printf("%8.2f\t%-8.2f\n", c, d);
+	printf("%8.3f\t%-8.3f\n", e, f);
+
+Resultado:
+
+	Columna1        Columna2
+	     1.1        2.2
+	    3.33        4.44
+	   5.555        6.666
+
+También es posible ==indicar cuantas posiciones va a ocupar la impresión de un dato==. Esto nos permitirá disponer los datos en forma de columna. En el ejemplo anterior se especifica que los datos ocupen 8 posiciones cada uno. Por ejemplo, el comodín **%8.1f** indica que hay que mostrar el dato ocupando 8 posiciones y con 1 decimal. El número de posiciones puede ser positivo o negativo. Si es positivo el dato se alinea a la derecha en el espacio asignado. Si es negativo se alinea a la izquierda.
+
+	#!c
+	float dato = 10.555;
+	int decimales = 1;
+	printf("El dato es %.*f", decimales, dato);
+
+Resultado:
+
+	El dato es 10.6
+
+Es posible ==especificar el número de decimales con una variable==. Esto nos permite leer ese valor de un fichero de configuración o bien preguntárselo al usuario. Para utilizar esta funcionalidad utilizaremos el comodín **%.\*f**. Al utilizar este comodín, la primera variable que viene a continuación debe de ser un dato entero que indique el número de posiciones decimales a representar (en el ejemplo anterior la variable **decimales**).
+
+
 
 

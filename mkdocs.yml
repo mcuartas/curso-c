@@ -13,6 +13,7 @@ pages:
   - Inicio: index.md
   - Crear documentacion:
     - Uso de mkdocs: mkdocs.md
+    - Editor de texto: editor.md
     - Escribiendo Markdown: markdown.md
     - Repositorios Git: git.md
   - Acerca de: about.md
