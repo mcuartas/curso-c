@@ -50,7 +50,7 @@ Para utilizar la extensión PyMdown que entre otros paquetes incluye arithmatex 
 * `mkdocs build` - Build the documentation site.
 * `mkdocs help` - Print this help message.
 
-###s Pasos para comenzar la edición
+### Pasos para comenzar la edición
 
 1. 	Abrir una consola DOS
 2. 	Teclear:  
