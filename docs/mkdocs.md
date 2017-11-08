@@ -56,7 +56,7 @@ Para crear un nuevo respositorio local seleccionaremos una carpeta y crearemos u
 
 	#!bash
 	git init
-	git add README.md
+	git add .
 	git commit -m "first commit"
 	git remote add origin https://github.com/mcuartas/curso-c.git
 	git push -u origin master
@@ -146,7 +146,6 @@ A partir de aquí podemos subir nuevas versiones y/o actualizar nuestra copia lo
 1. 	Abrir una consola DOS
 2. 	Teclear:  
 
-		:::bash
 		cd Documents/mkdocs/curso-c
 		mkdocs serve
 
