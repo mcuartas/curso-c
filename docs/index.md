@@ -3,7 +3,7 @@
 !!! danger "Página en construcción"
 	Este contenido es solo un prototipo para probar la funcionalidad de mkdocs.
 
-## Hola mundo
+## Primer programa
 
 	#!c
 	#include <stdio.h>
