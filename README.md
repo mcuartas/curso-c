@@ -42,3 +42,21 @@ Para utilizar la extensión CodeHilite es necesario instalar pygments:
 Para utilizar la extensión PyMdown que entre otros paquetes incluye arithmatex (MathJax) es necesario instalarla:
 
 	pip install pymdown-extensions
+
+### Comandos
+
+* `mkdocs new [dir-name]` - Create a new project.
+* `mkdocs serve` - Start the live-reloading docs server.
+* `mkdocs build` - Build the documentation site.
+* `mkdocs help` - Print this help message.
+
+###s Pasos para comenzar la edición
+
+1. 	Abrir una consola DOS
+2. 	Teclear:  
+
+		cd Documents/mkdocs/curso-c
+		mkdocs serve
+
+3.  Abrir el navegador en http://127.0.0.1:8000/
+4.  Comenzar la edición
