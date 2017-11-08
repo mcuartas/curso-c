@@ -91,7 +91,13 @@ Opcionalmente podemos crear un fichero llamado .gitignore para excluir las carpe
 	site/
 	c/
 
-Una vez realizado el commit inicial con Visual Studio Code, podemos subir la versión al repositorio remoto con:
+Realizamos el commit inicial con los siguientes comandos:
+
+	:::bash
+	git add .
+	git commit -m "initial commit"
+
+A continuación, podemos subir la versión al repositorio remoto con:
 
 	:::bash
 	git remote add daddy mcuartas@cuartas.es:/home/mcuartas/git/curso-c.git
@@ -123,7 +129,7 @@ A partir de aquí podemos subir nuevas versiones y/o actualizar nuestra copia lo
 
 	:::bash
 	git push daddy master
-	git pull daddy masters
+	git pull daddy master
 
 ## Comandos
 

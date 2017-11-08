@@ -2,6 +2,8 @@
 
 Notas sobre el curso de programación en C.
 
+El resultado de este proyecto está publicado en [esta página](http://cuartas.es/c).
+
 ## Acerca de mkdocs
 
 [mkdocs](http://www.mkdocs.org) es una herramienta para crear documentación.  
