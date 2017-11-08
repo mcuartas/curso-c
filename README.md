@@ -1,6 +1,6 @@
-# Curso C
+# Curso de C
 
-Notas sobre el curso de programación en C.
+Tutorial para iniciarse en la programación con lenguaje C elaborado con mkdocs.
 
 El resultado de este proyecto está publicado en [esta página](http://cuartas.es/c).
 
