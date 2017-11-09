@@ -11,6 +11,7 @@ copyright: Copyright &copy; 2017 Miguel Cuartas
 # Structure
 pages:
   - Inicio: index.md
+  - Estructuras de control: estructuras-control.md
   - Crear documentacion:
     - Uso de mkdocs: mkdocs.md
     - Editor de texto: editor.md
