@@ -112,7 +112,7 @@ La función **fscanf** devuelve un valor entero indicando el número de datos le
 
 Debemos tener presente que el ciclo también podría finalizar al encontrar un dato inválido en el fichero. Podemos probar a sustituir el número 10 por la palabra "diez" en el fichero para comprobarlo. Para distinguir estos dos casos (se alcanza el final de fichero y aparece un dato que no se puede leer) realizaremos una comprobación al final con una estructura **if**. La condición hace uso de la función **feof** que devuelve cierto o falso según si el fichero que pasamos como argumento ha alcanzado su final o no.
 
-### Lectura de múltiple de datos
+### Lectura múltiple de datos
 
 Cuando cada línea de un fichero tiene un formato de datos equivalente, es posible leerlos con una sola llamada a **fscanf**. Supongamos que tenemos el fichero **datos.txt** conteniendo en cada línea un identificador de persona, su edad y su talla.
 

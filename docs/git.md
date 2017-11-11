@@ -86,3 +86,22 @@ A partir de aquí podemos subir nuevas versiones y/o actualizar nuestra copia lo
 	:::bash
 	git push daddy master
 	git pull daddy master
+
+## Consolidar una nueva versión
+
+Para consolidar una nueva versión en el repositorio, nos situamos en el directorio de trabajo y ejecutamos desde la línea de comandos:
+
+	:::bash
+	git add .
+	git commit -m "nombre de la version"
+	git push origin master
+
+!!! note ""
+	Es posible que sea necesario sustituir **origin** por el nombre que le hemos dado al repositorio remoto.
+
+Luego podemos generar el sitio estático con:
+
+	:::bash
+	mkdocs build
+
+Por último, subimos la nueva versión a la web mediante FileZilla o similar copiando el directorio.
