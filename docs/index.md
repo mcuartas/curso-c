@@ -407,6 +407,8 @@ Para utilizarlas es necesario poner al principio del programa `:::c #include <ma
 |floor   |Entero inferior     | floor(2.50)|2.00     |
 |fabs    |Valor absoluto      | fabs(-2.50)|2.50     |
 
+Es importante tener en cuenta que las funciones trigonométricas funcionan con ángulos en radianes.
+
 > Ejemplo:
 
 	#!c  hl_lines="2 8"
@@ -424,3 +426,8 @@ Para utilizarlas es necesario poner al principio del programa `:::c #include <ma
 
 	raiz: 3.16
 	cubo: 1000
+
+## Números aleatorios
+
+!!! note ""
+	En construcción.
