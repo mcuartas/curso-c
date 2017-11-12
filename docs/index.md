@@ -76,7 +76,7 @@ Es posible declarar varias variables de un mismo tipo a la vez, separándolas po
 
 ## Constantes
 
-Las constantes son identificadores para datos que tienen un valor fijo. En lugar de utilizar el valor literal en diferentes partes del programa, se le asigna al dato un identificador y se vincula el valor al identificador en una directiva al comienzo del programa. De esta forma utilizamos el identificador en el programa sin necesidad de repetir el valor literal. Además resulta más sencillo cambiar su valor, si fuera necesario.
+Las constantes son identificadores para datos que tienen un valor fijo. En lugar de utilizar el valor literal en diferentes partes del programa, se le asigna al dato un identificador. La vinculación del valor al identificador se realiza en una directiva al comienzo del programa. De esta forma, utilizamos el identificador en el programa sin necesidad de repetir el valor literal. Además resulta más sencillo cambiar su valor en un único sitio, si fuera necesario.
 
 	:::c
 	#define PI 3.14159
@@ -121,7 +121,7 @@ En una expresión formada por varios operandos y operadores no todo se ejecuta a
 
 En el ejemplo, el operador división tiene mayor prioridad que la suma y la asignación. Por ello primero se ejecuta `#!c 10 / b` y posteriormente `#!c a + 5`. Por último se ejecuta `#!c c = 15`.
 
-Como norma general, la multiplicacion y la división tienen mayor prioridad que la suma y la resta. Los operadores que tienen la misma prioridad entre ellos se ejecutan, en general, de izquierda a derecha (por ejemplo la multiplicacion y la división). A esto último se le llama 
+Como norma general, la multiplicacion y la división tienen mayor prioridad que la suma y la resta. Los operadores que tienen la misma prioridad entre ellos se ejecutan, en general, de izquierda a derecha (por ejemplo la multiplicacion y la división).
 
 En caso de duda, lo más recomendable es hacer uso intensivo de paréntesis para dejar claro el orden de las operaciones. Incluso cuando no sean extrictamente necesarios.
 
