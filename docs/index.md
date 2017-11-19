@@ -429,5 +429,92 @@ Es importante tener en cuenta que las funciones trigonométricas funcionan con �
 
 ## Números aleatorios
 
-!!! note ""
-	En construcción.
+Para generar números aleatorios utilizaremos la función **rand** ubicada en la librería **stdlib**.
+
+> Ejemplo:
+
+	#!c
+	#include <stdio.h>
+	#include <stdlib.h>
+
+	void main()
+	{
+	    int a;
+
+	    a = rand();
+	    printf("Numero aleatorio: %i\n", a);
+
+	    a = rand();
+	    printf("Numero aleatorio: %i\n", a);
+
+	    printf("Maximo numero aleatorio: %i\n", RAND_MAX);
+	}
+
+> Resultado:
+
+	Numero aleatorio: 41
+	Numero aleatorio: 18467
+	Maximo numero aleatorio: 32767
+
+Los números pseudo-aleatorios generados por la función **rand** estarán comprendidos entre 0 y el valor definido en **RAND_MAX** que habitualmente es **32676**. Durante la ejecución del programa, cada vez que se llama a la función **rand** esta devuelve un número aleatorio en ese intervalo.
+
+Si ejecutamos el programa anterior varias veces, en todas ellas se generarán los mismos números aleatorios **41** y **18467**. Para generar otros números aleatorios diferentes, utilizaremos la función **srand** para *inicializar* el generador de numeros aleatorios. A la función **srand** le pasamos un número entero entre paréntesis que se utilizará como semilla para inicializar la generación de números aleatorios.
+
+> Ejemplo:
+
+	#!c
+	#include <stdio.h>
+	#include <stdlib.h>
+
+	void main()
+	{
+	    srand(14);
+
+	    printf("%i", rand());
+	    printf("%i", rand());
+	    printf("%i", rand());
+	}
+
+> Resultado:
+
+	84
+	27125
+	9192
+
+En el ejemplo vemos que con la instrucción `:::c srand(14)` inicializamos el generador de números aleatorios para producir números diferentes al ejemplo anterior. Si no utilizamos **srand** en nuestro programa, es equivalente a poner `:::c srand(1)`.
+
+Aún así, al ejecutar varias veces este segundo programa seguimos obteniendo siempre el mismo resultado. Esto puede ser útil si queremos que los datos de entrada a nuestro algoritmo sean aleatorios pero reproducibles. Pero en otras ocasiones es útil que los datos aleatorios generados sean distintos en cada ejecución del programa. Para conseguir esto pasaremos como argumento a la función **srand** la expresión **time(NULL)**. Para utilizar la función **time** incluiremos la siguiente librería `:::c #include <time.h>`.
+
+	:::c
+	#include <stdio.h>
+	#include <stdlib.h>
+	#include <time.h>
+
+	void main()
+	{
+	    srand(time(NULL));
+
+	    printf("%i\n", rand());
+	    printf("%i\n", rand());
+	    printf("%i\n", rand());
+	}
+
+De esta forma, la inicialización del generador de números aleatorios es dependiente del momento de ejecución del programa y esto consigue que en cada ejecución los números aleatorios generados sean diferentes.
+
+Es posible generar números aleatorios en un intervalo. Para ello llamaremos a la función **rand** y procesaremos el valor obtenido para escalarlo al intervalo correspondiente.
+
+	:::c
+	int n = rand() % 20;
+
+Con la operación modulo (**%**) de este ejemplo obtenemos un número aleatorio entre 0 y 19 (incluidos) dentro de la variable **n**. Pero al utilizar esta tipo de operación se distorsiona la uniformidad de los números aleatorios ligeramente. Esto en muchas ocasiones no es un problema.
+
+Para respetar la uniformidad sería necesario utilizar un código como el siguiente:
+
+	:::c
+	int randint(int n)
+	{
+	    long end = (RAND_MAX / n) * n;
+	    int r;
+	    while((r = rand()) >= end);
+	    return r % n;
+	}
