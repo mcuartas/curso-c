@@ -239,7 +239,7 @@ Veamos un ejemplo de escritura de datos a un fichero que genera varia líneas:
 	    for(i = 1; i <= 10; i++)
 	    {
 	        m = TABLA * i;
-	        fprintf(f, "%i x %i = %i\n", 7, i, m);
+	        fprintf(f, "%i x %i = %i\n", TABLA, i, m);
 	    }
 
 	    fclose(f);

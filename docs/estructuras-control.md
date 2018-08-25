@@ -34,6 +34,8 @@ Si dos o más condiciones se unen por el **y lógico** para que sea cierta la re
 
 Si dos o más condiciones se unen por el **ó lógico** para que sea cierta la resultante, vale con que cualquiera de ellas sea cierta. Solamente si todas son falsas el resultado es falso.
 
+La exclamación (**no lógico**) convierte algo falso en cierto o bien, algo cierto en falso.
+
 ## Estructuras condicionales
 
 ### La estructura **if else**
@@ -149,6 +151,7 @@ Cualquier algoritmo resoluble con un **switch case** lo podríamos resolver con 
         default:
             printf("Continuar con precaucion");
             break;
+    }
 
 Se escribe la palabra **switch** seguida de una variable entre paréntesis. Lo habitual es que esta variable sea de tipo entero o de tipo carácter como en el ejemplo. Luego viene un bloque entre llaves. Dentro del bloque se crea un **case** para tratar cada posible valor de la variable. Para ello se pone la palabra clave **case** seguida del literal correspondiente al valor (en este caso un carácter, si la variable fuera un entero sería un número) y después el carácter **dos puntos**. En las líneas siguientes se escriben las sentencias que deseamos ejecutar cuando la variable tenga este valor (una o varias). Cuando queremos terminar el caso se pone la palabra clave **break**.
 
