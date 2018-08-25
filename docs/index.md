@@ -506,7 +506,7 @@ Es posible generar números aleatorios en un intervalo. Para ello llamaremos a l
 	:::c
 	int n = rand() % 20;
 
-Con la operación modulo (**%**) de este ejemplo obtenemos un número aleatorio entre 0 y 19 (incluidos) dentro de la variable **n**. Pero al utilizar esta tipo de operación se distorsiona la uniformidad de los números aleatorios ligeramente. Esto en muchas ocasiones no es un problema.
+Con la operación modulo (**%**) de este ejemplo obtenemos un número aleatorio entre 0 y 19 (incluidos) dentro de la variable **n**. Pero al utilizar este tipo de operación se distorsiona la uniformidad de los números aleatorios ligeramente. Esto en muchas ocasiones no es un problema.
 
 Para respetar la uniformidad sería necesario utilizar un código como el siguiente:
 
